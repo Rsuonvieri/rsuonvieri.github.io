@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="sv" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ROBINATOR_1990 - Strava Profil</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        strava: '#fc4c02',
+                        stravaDark: '#e34401',
+                        darkBg: '#121212',
+                        cardBg: '#1e1e1e',
+                        borderCol: '#2d2d2d'
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Inter Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        /* Custom scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #121212; }
+        ::-webkit-scrollbar-thumb { background: #fc4c02; border-radius: 4px; }
+    </style>
+</head>
+<body class="bg-darkBg text-gray-100 min-h-screen pb-12">
+
+    <!-- Navigation Header -->
+    <header class="bg-cardBg border-b border-borderCol sticky top-0 z-50">
+        <div class="max-w-5xl mx-auto px-4 h-16 flex items-center justify-between">
+            <div class="flex items-center space-x-3">
+                <div class="bg-strava text-white p-2 rounded-lg font-black text-xl tracking-tighter flex items-center justify-center w-10 h-10 shadow-lg shadow-strava/30">
+                    R
+                </div>
+                <div>
+                    <h1 class="font-bold text-lg tracking-wide text-white flex items-center gap-2">
+                        ROBINATOR_1990 
+                        <span class="bg-strava/20 text-strava text-xs px-2 py-0.5 rounded-full font-semibold border border-strava/30">AI-OPTIMERAD</span>
+                    </h1>
+                    <p class="text-xs text-gray-400">Femkamp Edition (v. 2026)</p>
+                </div>
+            </div>
+            <div>
+                <button onclick="triggerWinSimulation()" class="bg-strava hover:bg-stravaDark text-white font-semibold px-4 py-2 rounded-lg text-sm transition-all shadow-md shadow-strava/20 flex items-center gap-2 cursor-pointer">
+                    <i class="fa-solid fa-bolt"></i> Kör över motståndet
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Container -->
+    <main class="max-w-5xl mx-auto px-4 mt-6 space-y-6">
+
+        <!-- Profile Hero Section -->
+        <section class="bg-cardBg border border-borderCol rounded-2xl p-6 shadow-xl relative overflow-hidden">
+            <div class="absolute -right-10 -bottom-10 w-48 h-48 bg-strava/10 rounded-full blur-3xl pointer-events-none"></div>
+            
+            <div class="flex flex-col md:flex-row items-center md:items-start gap-6">
+                <!-- Avatar -->
+                <div class="relative">
+                    <div class="w-28 h-28 md:w-32 md:h-32 rounded-2xl border-2 border-strava p-1 bg-darkBg shadow-inner overflow-hidden flex items-center justify-center">
+                        <!-- Placeholder image representing robotic/cyborg athlete -->
+                        <img src="https://placehold.co/200x200/1e1e1e/fc4c02?text=ROBINATOR" alt="Robinator Avatar" class="w-full h-full object-cover rounded-xl" onerror="this.src='https://placehold.co/200x200/1e1e1e/fc4c02?text=AI'">
+                    </div>
+                    <div class="absolute -bottom-2 -right-2 bg-strava text-white text-xs px-2 py-1 rounded-full font-bold shadow-md flex items-center gap-1">
+                        <i class="fa-solid fa-crown text-[10px]"></i> PRO
+                    </div>
+                </div>
+
+                <!-- Profile Info & Stats Overview -->
+                <div class="flex-1 text-center md:text-left">
+                    <div class="flex flex-col md:flex-row md:items-center justify-between gap-2">
+                        <div>
+                            <h2 class="text-2xl md:text-3xl font-extrabold text-white">Robin "Robinator"</h2>
+                            <p class="text-gray-400 text-sm mt-0.5"><i class="fa-solid fa-location-dot text-strava mr-1"></i> Skåre, Värmland • Kämpa mot 99-generationen / 90-talsvinnaren</p>
+                        </div>
+                        <div class="bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 px-3 py-1.5 rounded-xl text-xs font-semibold inline-flex items-center justify-center gap-1.5 self-center">
+                            <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span> Vinstsannolikhet: 99.8%
+                        </div>
+                    </div>
+
+                    <!-- 4 Weeks Stats Grid -->
+                    <div class="grid grid-cols-3 gap-3 mt-6 bg-darkBg/60 border border-borderCol/60 rounded-xl p-4">
+                        <div class="text-center md:text-left">
+                            <span class="text-xs text-gray-400 block font-medium">Aktiviteter</span>
+                            <span class="text-xl md:text-2xl font-black text-white">112</span>
+                            <span class="text-[10px] text-emerald-400 block font-semibold">+14% denna vecka</span>
+                        </div>
+                        <div class="text-center md:text-left border-x border-borderCol px-2">
+                            <span class="text-xs text-gray-400 block font-medium">Total Tid</span>
+                            <span class="text-xl md:text-2xl font-black text-white">407 <span class="text-xs font-normal text-gray-400">tim</span></span>
+                            <span class="text-[10px] text-strava block font-semibold">Kvantberäknad</span>
+                        </div>
+                        <div class="text-center md:text-left pl-1">
+                            <span class="text-xs text-gray-400 block font-medium">Dominansgrad</span>
+                            <span class="text-xl md:text-2xl font-black text-white">100%</span>
+                            <span class="text-[10px] text-emerald-400 block font-semibold">Oundviklig</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Two Column Layout: Charts & Feed -->
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+
+            <!-- Left / Main Column: Activities Feed -->
+            <div class="lg:col-span-2 space-y-4">
+                <div class="flex items-center justify-between">
+                    <h3 class="font-bold text-lg text-white flex items-center gap-2">
+                        <i class="fa-solid fa-person-running text-strava"></i> Senaste AI-optimerade träningspass
+                    </h3>
+                    <span class="text-xs text-gray-400">Senaste 4 veckorna</span>
+                </div>
+
+                <!-- Activity 1 -->
+                <div class="bg-cardBg border border-borderCol rounded-xl p-5 hover:border-strava/50 transition-all shadow-md group">
+                    <div class="flex items-start justify-between">
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 rounded-full bg-strava/10 border border-strava/30 flex items-center justify-center text-strava">
+                                <i class="fa-solid fa-futbol"></i>
+                            </div>
+                            <div>
+                                <span class="text-xs text-gray-400 font-medium">Igår kl 14:32</span>
+                                <h4 class="font-bold text-white group-hover:text-strava transition-colors">Gåfotboll: Taktiskt krossande & Psyning</h4>
+                            </div>
+                        </div>
+                        <span class="bg-emerald-500/10 text-emerald-400 text-xs px-2.5 py-1 rounded-md font-bold">1:a Plats</span>
+                    </div>
+                    <p class="text-sm text-gray-300 mt-3">
+                        Simulerade 45 000 möjliga bollbanor i realtid. Motståndarens 90-talsgäng hann inte ens uppfatta passningarna. Total förnedring i lugnt tempo.
+                    </p>
+                    <div class="grid grid-cols-3 gap-2 mt-4 pt-3 border-t border-borderCol/50 text-xs text-gray-400">
+                        <div>
+                            <span class="block text-white font-bold">4.2 km</span> Distans (Kontrollerad)
+                        </div>
+                        <div>
+                            <span class="block text-white font-bold">142 bpm</span> Snittpuls (Kallt lugn)
+                        </div>
+                        <div>
+                            <span class="block text-white font-bold">+240%</span> Effektivitet
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Activity 2 -->
+                <div class="bg-cardBg border border-borderCol rounded-xl p-5 hover:border-strava/50 transition-all shadow-md group">
+                    <div class="flex items-start justify-between">
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 rounded-full bg-strava/10 border border-strava/30 flex items-center justify-center text-strava">
+                                <i class="fa-solid fa-beer-mug-empty"></i>
+                            </div>
+                            <div>
+                                <span class="text-xs text-gray-400 font-medium">För 2 dagar sedan</span>
+                                <h4 class="font-bold text-white group-hover:text-strava transition-colors">Beer Pong: Kvantoptimerad bollar-kasta</h4>
+                            </div>
+                        </div>
+                        <span class="bg-emerald-500/10 text-emerald-400 text-xs px-2.5 py-1 rounded-md font-bold">1:a Plats</span>
+                    </div>
+                    <p class="text-sm text-gray-300 mt-3">
+                        Inkorporerade ballistiska beräkningar och motståndarens promillehalt i kastarmen. Resultat: Spikrak träff i varje mugg utan spill.
+                    </p>
+                    <div class="grid grid-cols-3 gap-2 mt-4 pt-3 border-t border-borderCol/50 text-xs text-gray-400">
+                        <div>
+                            <span class="block text-white font-bold">10/10</span> Träffsäkerhet
+                        </div>
+                        <div>
+                            <span class="block text-white font-bold">0.0 ‰</span> Egna promille
+                        </div>
+                        <div>
+                            <span class="block text-white font-bold">+310%</span> Precisionsökning
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Activity 3 -->
+                <div class="bg-cardBg border border-borderCol rounded-xl p-5 hover:border-strava/50 transition-all shadow-md group">
+                    <div class="flex items-start justify-between">
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 rounded-full bg-strava/10 border border-strava/30 flex items-center justify-center text-strava">
+                                <i class="fa-solid fa-fire-flame-curved"></i>
+                            </div>
+                            <div>
+                                <span class="text-xs text-gray-400 font-medium">För 3 dagar sedan</span>
+                                <h4 class="font-bold text-white group-hover:text-strava transition-colors">Bastubad: Extrem Biometrisk Acklimatisering</h4>
+                            </div>
+                        </div>
+                        <span class="bg-emerald-500/10 text-emerald-400 text-xs px-2.5 py-1 rounded-md font-bold">Överlevare</span>
+                    </div>
+                    <p class="text-sm text-gray-300 mt-3">
+                        Kanaliserade rymdfartsteknologi för värmeavledning. Satt kvar i 110 grader efter att alla andra lämnat bänken gråtande.
+                    </p>
+                    <div class="grid grid-cols-3 gap-2 mt-4 pt-3 border-t border-borderCol/50 text-xs text-gray-400">
+                        <div>
+                            <span class="block text-white font-bold">110°C</span> Temperatur
+                        </div>
+                        <div>
+                            <span class="block text-white font-bold">45 min</span> Utan blinkning
+                        </div>
+                        <div>
+                            <span class="block text-white font-bold">99.9%</span> Värmetålighet
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Activity 4 -->
+                <div class="bg-cardBg border border-borderCol rounded-xl p-5 hover:border-strava/50 transition-all shadow-md group">
+                    <div class="flex items-start justify-between">
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 rounded-full bg-strava/10 border border-strava/30 flex items-center justify-center text-strava">
+                                <i class="fa-solid fa-gamepad"></i>
+                            </div>
+                            <div>
+                                <span class="text-xs text-gray-400 font-medium">För 4 dagar sedan</span>
+                                <h4 class="font-bold text-white group-hover:text-strava transition-colors">Rocket League & Hitster: Multitask-dominans</h4>
+                            </div>
+                        </div>
+                        <span class="bg-emerald-500/10 text-emerald-400 text-xs px-2.5 py-1 rounded-md font-bold">Champion I</span>
+                    </div>
+                    <p class="text-sm text-gray-300 mt-3">
+                        Spelade rankad Rocket League samtidigt som jag namngav 90-talslåtar på 0.2 sekunder i Hitster. AI-n har inga gränser.
+                    </p>
+                    <div class="grid grid-cols-3 gap-2 mt-4 pt-3 border-t border-borderCol/50 text-xs text-gray-400">
+                        <div>
+                            <span class="block text-white font-bold">100%</span> Hitster-korrekt
+                        </div>
+                        <div>
+                            <span class="block text-white font-bold">Grand Champ</span> Klass
+                        </div>
+                        <div>
+                            <span class="block text-white font-bold">+220%</span> Reﬂexsnabbhet
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Column: Graphs & Strategies -->
+            <div class="space-y-6">
+                
+                <!-- Performance Graph Card -->
+                <div class="bg-cardBg border border-borderCol rounded-xl p-5 shadow-xl">
+                    <h4 class="font-bold text-white text-sm flex items-center gap-2 mb-4">
+                        <i class="fa-solid fa-chart-line text-strava"></i> Utvecklingskurva (Spikrak)
+                    </h4>
+                    
+                    <!-- Simulated Bar/Line Chart Container -->
+                    <div class="h-48 bg-darkBg/80 border border-borderCol/80 rounded-lg p-3 flex flex-col justify-end relative overflow-hidden">
+                        <!-- Background Grid Lines -->
+                        <div class="absolute inset-0 flex flex-col justify-between p-3 pointer-events-none opacity-20">
+                            <div class="border-b border-gray-600 w-full"></div>
+                            <div class="border-b border-gray-600 w-full"></div>
+                            <div class="border-b border-gray-600 w-full"></div>
+                            <div class="border-b border-gray-600 w-full"></div>
+                        </div>
+
+                        <!-- Bar Graph Representation -->
+                        <div class="flex items-end justify-between gap-2 z-10 h-36 pt-4">
+                            <div class="w-1/6 bg-strava/40 hover:bg-strava rounded-t transition-all h-[30%] relative group">
+                                <span class="absolute -top-6 left-1/2 -translate-x-1/2 text-[9px] text-gray-300 opacity-0 group-hover:opacity-100 transition-opacity">v.1</span>
+                            </div>
+                            <div class="w-1/6 bg-strava/60 hover:bg-strava rounded-t transition-all h-[45%] relative group">
+                                <span class="absolute -top-6 left-1/2 -translate-x-1/2 text-[9px] text-gray-300 opacity-0 group-hover:opacity-100 transition-opacity">v.2</span>
+                            </div>
+                            <div class="w-1/6 bg-strava/80 hover:bg-strava rounded-t transition-all h-[70%] relative group">
+                                <span class="absolute -top-6 left-1/2 -translate-x-1/2 text-[9px] text-gray-300 opacity-0 group-hover:opacity-100 transition-opacity">v.3</span>
+                            </div>
+                            <div class="w-1/6 bg-strava hover:bg-stravaDark rounded-t transition-all h-[95%] relative group shadow-lg shadow-strava/50">
+                                <span class="absolute -top-6 left-1/2 -translate-x-1/2 text-[9px] text-white font-bold opacity-0 group-hover:opacity-100 transition-opacity">MAX</span>
+                            </div>
+                        </div>
+
+                        <div class="flex justify-between text-[10px] text-gray-400 mt-2 border-t border-borderCol pt-1">
+                            <span>Vecka 1</span>
+                            <span>Vecka 2</span>
+                            <span>Vecka 3</span>
+                            <span class="text-strava font-bold">Vecka 4 (NU)</span>
+                        </div>
+                    </div>
+                    <p class="text-xs text-gray-400 mt-3 text-center">
+                        Kurvan visar en exponentiell ökning av vinstchans i alla femkampens grenar.
+                    </p>
+                </div>
+
+                <!-- AI Strategies Card -->
+                <div class="bg-cardBg border border-borderCol rounded-xl p-5 shadow-xl space-y-3">
+                    <h4 class="font-bold text-white text-sm flex items-center gap-2">
+                        <i class="fa-solid fa-brain text-strava"></i> Aktiva AI-Strategier
+                    </h4>
+                    <ul class="space-y-2 text-xs text-gray-300">
+                        <li class="flex items-start gap-2 bg-darkBg p-2 rounded-lg border border-borderCol/50">
+                            <i class="fa-solid fa-check text-strava mt-0.5"></i>
+                            <span><strong>Kvantkalori-synkronisering:</strong> Intag av energi anpassat exakt efter motståndarens trötthetskurva.</span>
+                        </li>
+                        <li class="flex items-start gap-2 bg-darkBg p-2 rounded-lg border border-borderCol/50">
+                            <i class="fa-solid fa-check text-strava mt-0.5"></i>
+                            <span><strong>Sömnanalys via maskininlärning:</strong> REM-sömn optimerad för maximal kaxighet under middagen.</span>
+                        </li>
+                        <li class="flex items-start gap-2 bg-darkBg p-2 rounded-lg border border-borderCol/50">
+                            <i class="fa-solid fa-check text-strava mt-0.5"></i>
+                            <span><strong>Biometrisk bastu-acklimatisering:</strong> Kroppstemperatur låst på optimalt läge för svennebanan-dominans.</span>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+
+        </div>
+
+    </main>
+
+    <!-- Interactive Simulation Modal / Toast -->
+    <div id="simulationModal" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden">
+        <div class="bg-cardBg border border-strava rounded-2xl p-6 max-w-md w-full shadow-2xl relative text-center space-y-4 animate-in fade-in zoom-in duration-200">
+            <div class="w-16 h-16 bg-strava/20 rounded-full flex items-center justify-center mx-auto text-strava text-2xl border border-strava/40">
+                <i class="fa-solid fa-robot animate-spin"></i>
+            </div>
+            <h3 class="text-xl font-bold text-white">AI-Prognos Beräknad!</h3>
+            <p id="simulationText" class="text-sm text-gray-300">
+                Simulerar 10 000 scenarier... 90-talsgänget har 0.00% chans att försvara titeln. Robinator tar hem pokalen med råge!
+            </p>
+            <button onclick="closeSimulation()" class="bg-strava hover:bg-stravaDark text-white font-semibold px-6 py-2 rounded-xl text-sm transition-all w-full cursor-pointer">
+                Acceptera Oundvikligt Öde
+            </button>
+        </div>
+    </div>
+
+    <!-- JavaScript for interactivity -->
+    <script>
+        function triggerWinSimulation() {
+            const modal = document.getElementById('simulationModal');
+            const texts = [
+                "Simulerar 10 000 scenarier... 90-talsgänget har 0.00% chans att försvara titeln. Robinator tar hem pokalen med råge!",
+                "Analyserar gåfotboll... Motståndarna snubblar på sina egna nostalgi-sneakers. Vinst säkrad!",
+                "Beer Pong-kalkyl klar... 100% träffsäkerhet inräknad. Skål för vinnaren Robinator!",
+                "Hitster-algoritmen aktiverad... Du känner igen 90-talshitsen innan intro-trummor ens börjat!"
+            ];
+            const randomText = texts[Math.floor(Math.random() * texts.length)];
+            document.getElementById('simulationText').innerText = randomText;
+            modal.classList.remove('hidden');
+        }
+
+        function closeSimulation() {
+            document.getElementById('simulationModal').classList.add('hidden');
+        }
+    </script>
+</body>
+</html>
